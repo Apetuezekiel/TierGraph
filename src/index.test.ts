@@ -1,8 +1,8 @@
-import { describe, it } from 'vitest';
+import { describe, expect, it } from 'vitest';
 
-// scaffold placeholder — real tests added in PR 2 and PR 3
-describe('tiergraph', () => {
-	it('module loads', async () => {
-		await import('./index.js');
+describe('public exports', () => {
+	it('exports defineConfig', async () => {
+		const mod = await import('./index.js');
+		expect(typeof mod.defineConfig).toBe('function');
 	});
 });

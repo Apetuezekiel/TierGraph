@@ -1,2 +1,2 @@
-// tiergraph public API — exports added in subsequent PRs
-export {};
+export { defineConfig } from './config.js';
+export type { Config, ConfigInput, Limit, Period, PlanInput, ResolvedPlan } from './types.js';
