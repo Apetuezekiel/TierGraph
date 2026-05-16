@@ -1,0 +1,48 @@
+{
+	"name": "tiergraph",
+	"version": "0.0.0",
+	"description": "Zero-runtime-dependency TypeScript library for SaaS tier-based feature gating",
+	"license": "MIT",
+	"author": "Ezekiel Apetu",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/Apetuezekiel/TierGraph.git"
+	},
+	"bugs": {
+		"url": "https://github.com/Apetuezekiel/TierGraph/issues"
+	},
+	"homepage": "https://github.com/Apetuezekiel/TierGraph#readme",
+	"sideEffects": false,
+	"type": "module",
+	"exports": {
+		".": {
+			"import": {
+				"types": "./dist/index.d.ts",
+				"default": "./dist/index.js"
+			},
+			"require": {
+				"types": "./dist/index.d.cts",
+				"default": "./dist/index.cjs"
+			}
+		}
+	},
+	"main": "./dist/index.cjs",
+	"module": "./dist/index.js",
+	"types": "./dist/index.d.ts",
+	"files": ["dist", "schema", "README.md", "LICENSE"],
+	"scripts": {
+		"build": "tsup",
+		"typecheck": "tsc --noEmit",
+		"test": "vitest run --coverage",
+		"lint": "biome check .",
+		"lint:fix": "biome check --write .",
+		"prepublishOnly": "npm run typecheck && npm run test && npm run build"
+	},
+	"devDependencies": {
+		"@biomejs/biome": "^1.9.4",
+		"@vitest/coverage-v8": "^3.1.3",
+		"tsup": "^8.4.0",
+		"typescript": "^5.8.3",
+		"vitest": "^3.1.3"
+	}
+}
