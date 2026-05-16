@@ -37,3 +37,8 @@ jobs:
 
       - name: Build
         run: npm run build
+
+      - name: Check schema is up to date
+        run: |
+          npm run schema:generate
+          git diff --exit-code schema/config.schema.json || (echo "schema/config.schema.json is out of date — run 'npm run schema:generate' and commit the result" && exit 1)

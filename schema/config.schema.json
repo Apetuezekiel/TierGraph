@@ -1,0 +1,72 @@
+{
+  "$ref": "#/definitions/ConfigInput",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "definitions": {
+    "ConfigInput": {
+      "additionalProperties": false,
+      "properties": {
+        "plans": {
+          "additionalProperties": {
+            "$ref": "#/definitions/PlanInput"
+          },
+          "type": "object"
+        }
+      },
+      "required": [
+        "plans"
+      ],
+      "type": "object"
+    },
+    "Limit": {
+      "additionalProperties": false,
+      "properties": {
+        "period": {
+          "$ref": "#/definitions/Period"
+        },
+        "quota": {
+          "type": [
+            "number",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "quota",
+        "period"
+      ],
+      "type": "object"
+    },
+    "Period": {
+      "enum": [
+        "monthly",
+        "yearly",
+        "lifetime"
+      ],
+      "type": "string"
+    },
+    "PlanInput": {
+      "additionalProperties": false,
+      "properties": {
+        "extends": {
+          "type": "string"
+        },
+        "features": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "limits": {
+          "additionalProperties": {
+            "$ref": "#/definitions/Limit"
+          },
+          "type": "object"
+        }
+      },
+      "required": [
+        "features"
+      ],
+      "type": "object"
+    }
+  }
+}
