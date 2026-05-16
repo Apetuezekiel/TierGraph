@@ -1,6 +1,6 @@
 {
 	"name": "tiergraph",
-	"version": "0.0.0",
+	"version": "0.1.0",
 	"description": "Zero-runtime-dependency TypeScript library for SaaS tier-based feature gating",
 	"license": "MIT",
 	"author": "Ezekiel Apetu",
@@ -29,7 +29,15 @@
 	"main": "./dist/index.cjs",
 	"module": "./dist/index.js",
 	"types": "./dist/index.d.ts",
-	"files": ["dist", "schema", "README.md", "LICENSE"],
+	"files": [
+		"dist/index.js",
+		"dist/index.cjs",
+		"dist/index.d.ts",
+		"dist/index.d.cts",
+		"schema",
+		"README.md",
+		"LICENSE"
+	],
 	"scripts": {
 		"build": "tsup",
 		"typecheck": "tsc --noEmit",
