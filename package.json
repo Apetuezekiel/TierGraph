@@ -6,7 +6,7 @@
 	"author": "Ezekiel Apetu",
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/Apetuezekiel/TierGraph.git"
+		"url": "git+https://github.com/Apetuezekiel/TierGraph.git"
 	},
 	"bugs": {
 		"url": "https://github.com/Apetuezekiel/TierGraph/issues"
