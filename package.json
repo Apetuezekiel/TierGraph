@@ -36,6 +36,7 @@
 		"dist/index.d.cts",
 		"schema",
 		"README.md",
+		"CHANGELOG.md",
 		"LICENSE"
 	],
 	"scripts": {

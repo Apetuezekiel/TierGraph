@@ -27,6 +27,11 @@ Initial release.
 - **JSON Schema** — `schema/config.schema.json` (draft-07) generated from the `ConfigInput` TypeScript type; published alongside the package for validation in non-TypeScript runtimes.
 - **Dual ESM + CJS publish** via `tsup`. Types included. Zero runtime dependencies.
 
+### Package notes
+
+- **Sourcemaps not published.** Sourcemaps are excluded from the tarball to keep package size minimal. Build from source (`npm run build`) if you need them for production debugging.
+- **Unpacked size: 33.6 KB.** Exceeds the original 30 KB headroom target. Trade-off rationale: the README sections required by the v1 spec (installation, quick start, full API reference, override examples, dynamic config, non-features, framework glue, comparison, versioning) cannot be trimmed without removing required content, and CHANGELOG.md is included per the publish audit spec. All required sections are present.
+
 ### Not included (deferred to v1.1+)
 
 - `createUsage`, `usage.check`, `usage.hasCapacity` — usage tracking
