@@ -37,6 +37,15 @@ describe('AccessDeniedError', () => {
 		const plain = err.toJSON();
 		expect(plain.name).toBe('AccessDeniedError');
 	});
+
+	it('JSON.stringify(err) invokes toJSON and produces full metadata — not {}', () => {
+		const err = new AccessDeniedError('export', 'free', ['pro']);
+		const parsed = JSON.parse(JSON.stringify(err)) as Record<string, unknown>;
+		expect(parsed.name).toBe('AccessDeniedError');
+		expect(parsed.feature).toBe('export');
+		expect(parsed.plan).toBe('free');
+		expect(parsed.requiredPlans).toEqual(['pro']);
+	});
 });
 
 describe('InvalidOverrideError', () => {
@@ -74,5 +83,13 @@ describe('InvalidOverrideError', () => {
 		expect(json.reason).toBe('grant_revoke_conflict');
 		expect(json.feature).toBe('write');
 		expect(JSON.parse(JSON.stringify(json))).toEqual(json);
+	});
+
+	it('JSON.stringify(err) invokes toJSON and produces full metadata — not {}', () => {
+		const err = new InvalidOverrideError('unknown_feature', 'sso');
+		const parsed = JSON.parse(JSON.stringify(err)) as Record<string, unknown>;
+		expect(parsed.name).toBe('InvalidOverrideError');
+		expect(parsed.reason).toBe('unknown_feature');
+		expect(parsed.feature).toBe('sso');
 	});
 });
